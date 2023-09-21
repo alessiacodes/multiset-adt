@@ -1,0 +1,16 @@
+@startuml
+
+'check the italics is sufficient'
+abstract MultiSet{
+    +{abstract} bool add()
+    +{abstract} void remove()
+    +{abstract} bool contains()
+    +{abstract} bool is_empty()
+    +{abstract} int count()
+    +{abstract} int size()
+
+}
+
+class Tree{
+}
+@enduml
