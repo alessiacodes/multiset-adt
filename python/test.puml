@@ -2,15 +2,70 @@
 
 'check the italics is sufficient'
 abstract MultiSet{
-    +{abstract} bool add()
-    +{abstract} void remove()
-    +{abstract} bool contains()
+    +{abstract} bool add(item: Any)
+    +{abstract} None remove(item: Any)
+    +{abstract} bool contains(item: Any)
     +{abstract} bool is_empty()
-    +{abstract} int count()
+    +{abstract} int count(item: Any)
     +{abstract} int size()
 
 }
 
 class Tree{
+    -Any _root
+    -list[Tree] _subtrees
+
+    None insert(item: Any)
+    bool delete_item(item: Any)
+    bool __contains__(item: Any)
+    bool is_empty()
+    int count(item)
+    int __len__()
+
 }
+
+class TreeMultiSet{
+    -Tree _tree
+    bool add(item: Any)
+    None remove(item: Any)
+    bool contains(item: Any)
+    bool is_empty()
+    int count(item: Any)
+    int size()
+}
+
+class ArrayListMultiSet{
+    -list _list
+
+    bool add(item: Any)
+    None remove(item: Any)
+    bool contains(item: Any)
+    bool is_empty()
+    int count(item: Any)
+    int size()
+}
+
+class LinkedListMultiset {
+    -_Node _front
+    -int _size
+
+    bool add(item: Any)
+    None remove(item: Any)
+    bool contains(item: Any)
+    bool is_empty()
+    int count(item: Any)
+    int size()
+}
+
+-class _Node{
+    Any item
+    _Node next
+}
+
+MultiSet <|.. TreeMultiSet
+MultiSet <|.. ArrayListMultiSet
+MultiSet <|.. LinkedListMultiset
+LinkedListMultiset *-- _Node
+Tree *-- TreeMultiSet
+
 @enduml
